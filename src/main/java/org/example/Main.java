@@ -16,35 +16,9 @@ public class Main {
 //        service.addProduct(new product(5,"samsung","smartphone","cabinate",2027));
 
           System.out.println("===========================================================");
-//
-//        List<product> products = service.getproducts();
-//        for(product p : products )
-//        {
-//            System.out.println(p);
-//        }
-
           service.getproducts();
 
-//
-//        System.out.println("===============================================================");
-//        System.out.println(service.getproduct("samsung"));
-//
-//        System.out.println("=================================================================");
-//        List<product> p1 = service.searchproducts("lenovo");
-//        for(product p : p1)
-//        {
-//            System.out.println(p);
-//        }
-//
-//        System.out.println("===================================================================");
-//
-//        List<product>  p2 = service.getExpiredProducts(2024);
-//        for(product p : p2)
-//        {
-//            System.out.println(p);
-//        }
-
-
-
+          System.out.println("===============================================================");
+          service.getproduct(7);
     }
 }

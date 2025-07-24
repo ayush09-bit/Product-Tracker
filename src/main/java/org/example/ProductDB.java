@@ -31,13 +31,11 @@ public class ProductDB {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public List<product> fetchAll() {
         List<product> products = new ArrayList<>();
         String query = "select * from product";
-
         try {
             PreparedStatement st = con.prepareStatement(query);
             ResultSet rs = st.executeQuery();
@@ -51,10 +49,35 @@ public class ProductDB {
                 p.setExpiry(rs.getInt(5));
                 products.add(p);
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return products;
+    }
+
+
+    public product fetchOne(int id) {
+        String query = "select * from product where id = ?";
+        try {
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1,id);
+            ResultSet rs = st.executeQuery();
+
+            if(rs.next())
+            {
+                product p = new product();
+                p.setId(rs.getInt(1));
+                p.setName(rs.getString(2));
+                p.setType(rs.getString(3));
+                p.setPlace(rs.getString(4));
+                p.setExpiry(rs.getInt(5));
+                return p;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+
     }
 }

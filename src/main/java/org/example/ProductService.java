@@ -3,12 +3,9 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Character.getName;
-
 public class ProductService {
 
     ProductDB db = new ProductDB();
-
     List<product> products = new ArrayList<>();
 
     public void addProduct(product p) {
@@ -19,18 +16,14 @@ public class ProductService {
     {
         List<product> products = new ArrayList<>();
         products = db.fetchAll();
-
-        for(product p :products)
-        {
-            System.out.println(p);
-        }
+        for(product p :products)  System.out.println(p);
     }
 
 
-    public product getproduct(String name) {
+    public product getproduct(int id) {
 
+        System.out.println(db.fetchOne(id));
         return null;
-
     }
 
     public List<product> searchproducts(String text) {
